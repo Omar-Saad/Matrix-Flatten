@@ -55,7 +55,12 @@ def main():
             print("Original matrix : The item at index {},{},{} is: {}".format(i,j,k, item))
             flag = False
         except IndexError:
-            print("Index out of range")
+            print("Error : Index out of range")
+            print('Please Try again..')
+            flag = True
+        except ValueError:
+            print("Error : Invalid input. Please try again.")
+            print('Please Try again..')
             flag = True
 
 

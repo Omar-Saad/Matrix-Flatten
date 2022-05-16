@@ -1,6 +1,8 @@
 from operator import le
 import numpy as np
 class Matrix:
+    _INDEX_ERROR_MSG = "INDEX ERROR : Wrong indeces"
+
     def __init__(self,N,M,P):
         self.N = N
         self.M = M
@@ -28,4 +30,8 @@ class Matrix:
         return self.matrix[i][j][k]
     
     def get_1D_index_from_3D(self,i,j,k):
-        return i*self.M + j*self.P + k
+        if i >= self.N or j >= self.M or k >= self.P:
+            raise IndexError
+             
+        return i*self.M*self.P + j*self.P + k
+     
